@@ -15,6 +15,16 @@ screen_width = block_width * size
 # Height of the screen
 screen_height = (block_width + 2) * size
 
+class gamestat(Enum):
+	ready = 1,
+	started = 2,
+	over = 3,
+	win = 4
+
+def show_text(screen, font, x, y, text, color=(255, 255, 255)):
+	imgtext = font.render(text, True, color)
+	creen.blit(imgtext, (x,y))
+
 def main():
 	pygame.init()
 	screen = pygame.display.set_mode((screen_width, screen_height))
@@ -30,4 +40,4 @@ def main():
 		
 
 if __name__ == '__main__':
-	main()	
+	main()
