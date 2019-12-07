@@ -13,11 +13,10 @@ import random
 from enum import Enum
 from pygame.locals import *
 
-
 block_width = 9  # height of the block
 block_height = 9  # height of the block
-size = 20  # size of each block
 mine_count = 10  # number of  mines in the game
+size = 20  # size of each block
 
 # Easy mode: 9*9 with 10 mines
 # Medium mode: 16*16 with 40 mines
@@ -44,6 +43,8 @@ class Mine:
     # set five variables for Mine class
     # x, y, value, mine_around and status
     # getter and setter and property function
+    # reference on how to use getter, setter, property
+    # https://www.geeksforgeeks.org/getter-and-setter-in-python/
 
     def __init__(self, x, y, value=0):
         self._x = x
@@ -199,6 +200,9 @@ def show_text(screen, font, x, y, text, color=(255, 255, 255)):
     screen.blit(imgtext, (x, y))
 
 def main():
+    # reference on how to use pygame:
+    # https://www.pygame.org/wiki/GettingStarted
+    # https://www.youtube.com/watch?v=FfWpgLFMI7w
     # initiate the pygame and open the window around.
     pygame.init()
     screen = pygame.display.set_mode((screen_width, screen_height))
@@ -210,6 +214,7 @@ def main():
     red = (200, 40, 40)
 
     # load the picture resources and revert them to the same size
+    # picture resources: https://github.com/maulik-vaghela/MineSweeper
     img0 = pygame.image.load('pic_element/0.png').convert()
     img0 = pygame.transform.smoothscale(img0, (size, size))
     img1 = pygame.image.load('pic_element/1.png').convert()
@@ -286,7 +291,6 @@ def main():
                 y = mouse_y // size - 2
 
                 # b1 is the left button and b3 is the right button
-
                 b1, b2, b3 = pygame.mouse.get_pressed()
                 if game_status == gamestat.started:
                     # both button pressed at the same time, if all the mine was
